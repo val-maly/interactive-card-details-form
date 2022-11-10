@@ -1,4 +1,156 @@
-body {
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
+:root {
+  /* Typography */
+  --family: 'Space Grotesk', sans-serif;
+  --fs-base: 18px;
+  --fw-base: 500;
+
+  /* Images */
+  --bg-main-desktop: url('./Images/bg-main-desktop.png');
+  --bg-main-mobile: url('./Images/bg-main-mobile.png');
+  --bg-card-back: url('./Images/bg-card-back.png');
+  --bg-card-front: url('./Images/bg-card-front.png');
+  --card-logo: url('./Images/card-logo.svg');
+  
+
+  /* Colors */
+  --colors-active-input-border: linear-gradient(white, white), linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  --colors-input-errors: hsl(0, 100%, 66%);
+
+  --colors-white: hsl(0, 0%, 100%);
+  --colors-violet-light: hsl(270, 3%, 87%);
+  --colors-violet-normal: hsl(279, 6%, 55%);
+  --colors-violet-dark: hsl(278, 68%, 11%);
+
+  --radius: 0.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--family);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-base);
+  color: var(--colors-violet-dark);
+  background: var(--colors-white);
+}
+
+
+.App {
+  margin: 0 auto;
+
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(1, minmax(300px, 375px));  
+}
+
+header {
+  width: 100%;
+  height: 30.5vh;
+
+  background: var(--bg-main-mobile) no-repeat;
+  background-size: cover;
+
+  color: var(--colors-white);
+}
+
+.credit-card-front, .credit-card-back {
+  width: 17.8rem;
+  height: 10rem;
+
+  border-radius: var(--radius);
+}
+
+.credit-card-front {
+  background: var(--bg-card-front) no-repeat;
+  background-size: cover;
+
+  position: relative;
+  top: -2.4rem;
+  left: 1rem;  
+}
+
+.credit-card-back {
+  background: var(--bg-card-back) no-repeat;
+  background-size: cover;
+
+  position:relative;
+  top: 2rem;
+  left: 4.5rem;
+}
+
+.card-logo {
+  scale: 0.6;
+
+  padding-top: 0.7rem;
+  padding-left: 0.2rem;
+}
+
+.credit-card-middle {
+  padding: 2rem 0 0 1.2rem; /* top right bottom left*/
+
+  letter-spacing: 0.14rem;
+
+}
+
+.credit-card-bottom {
+  padding: 1rem 1.2rem 0 1.2rem; /* top right bottom left*/
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.06rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.credit-card-cvv {
+  position: relative;
+
+  top: 4rem;
+  left: 14.3rem;
+
+  letter-spacing: 0.06rem;
+
+  font-size: 0.6rem;
+}
+
+main {
+  width: 100%;
+  min-height: 50vh;
+
+  padding-top: 5rem;
+  background: pink;
+}
+
+
+
+@media (min-width: 900px) {
+  .App {
+    display: grid;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-template-columns: 30rem auto;  
+  }
+
+  header {
+    height: 100vh;
+  
+    background: var(--bg-main-desktop) no-repeat;
+    background-size: cover;
+  }
+
+  main {
+    height: 100vh;
+    min-width: 50vw;
+  
+    padding: 5rem 0 0 0; /* top right bottom left*/
+
+    background: pink;
+  }
+}
